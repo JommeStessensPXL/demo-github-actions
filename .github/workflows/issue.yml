@@ -1,0 +1,15 @@
+name: Issue Logger
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  log-issue-details:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Toon titel en body van het nieuwe issue
+        run: |
+          echo "Titel: ${{ github.event.issue.title }}"
+          echo "Body: ${{ github.event.issue.body }}"
