@@ -1,0 +1,22 @@
+name: Build Example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository code
+      uses: actions/checkout@v4
+
+    - name: Setup NPM
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    - name: Bundle code and node_modules into a zip
+      run: zip -r app-bundle.zip . -x "*.git*"  
+      
+    - name: Verify zip creation
+      run: ls -lh app-bundle.zip
