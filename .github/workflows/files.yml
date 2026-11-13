@@ -1,0 +1,16 @@
+name: Manual Directory and File
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-and-list:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Maak Directory
+        run: mkdir mijn-map
+      - name: Schrijf korte tekst
+        run: echo "Hallo vanuit Github" > mijn-map/bericht.txt
+      - name: Inhoud tonen
+        run: ls -la mijn-map
